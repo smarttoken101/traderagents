@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradingAgents</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>TradingAgents UI</h1>
+        <form id="analysis-form">
+            <div class="form-group">
+                <label for="ticker">Ticker Symbol</label>
+                <input type="text" id="ticker" name="ticker" value="SPY" required>
+            </div>
+            <div class="form-group">
+                <label for="analysis_date">Analysis Date</label>
+                <input type="date" id="analysis_date" name="analysis_date" required>
+            </div>
+            <div class="form-group">
+                <label>Analysts</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="market" name="analysts" value="market" checked>
+                    <label for="market">Market</label>
+                    <input type="checkbox" id="social" name="analysts" value="social" checked>
+                    <label for="social">Social</label>
+                    <input type="checkbox" id="news" name="analysts" value="news" checked>
+                    <label for="news">News</label>
+                    <input type="checkbox" id="fundamentals" name="analysts" value="fundamentals" checked>
+                    <label for="fundamentals">Fundamentals</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="research_depth">Research Depth</label>
+                <select id="research_depth" name="research_depth">
+                    <option value="1">Shallow</option>
+                    <option value="2" selected>Standard</option>
+                    <option value="3">Deep</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="llm_provider">LLM Provider</label>
+                <select id="llm_provider" name="llm_provider">
+                    <option value="openai" selected>OpenAI</option>
+                    <option value="google">Google</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="shallow_thinker">Shallow Thinker</label>
+                <input type="text" id="shallow_thinker" name="shallow_thinker" value="gpt-4-turbo">
+            </div>
+            <div class="form-group">
+                <label for="deep_thinker">Deep Thinker</label>
+                <input type="text" id="deep_thinker" name="deep_thinker" value="gpt-4-turbo">
+            </div>
+            <button type="submit">Run Analysis</button>
+        </form>
+        <div id="results">
+            <h2>Results</h2>
+            <div id="progress"></div>
+            <div id="messages"></div>
+            <div id="report"></div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
